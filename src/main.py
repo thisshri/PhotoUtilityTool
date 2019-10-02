@@ -21,21 +21,23 @@ def create_square_image(image):
         color=(255, 255, 255)
         )
     square_image.paste(image, (left, top))
+    return square_image
 
 
-def main(*args, **kwargs):
-    print(args)
-    print(kwargs)
+def main(args):
+    if '-s' in args:
+        image_file = args[
+            args.index('-s') + 1
+        ]
 
-    image = Image.open('foo.jpg')
-    image = create_square_image(image)
-    import pdb; pdb.set_trace()
+        image = create_square_image(
+            Image.open(image_file)
+        )
+
+        file_name, file_ext = image_file.rsplit('.', 1)
+        file_name += "_sqaure_"
+        image.save(file_name + '.' + file_ext)
 
 
 if __name__ == "__main__":
-    sys.argv
-
-    kwargs = sys.argv[2:]
-    iter_kwargs = iter(kwargs)
-    # way to specify wheather a file or folder is passed, FLAG
-    main(sys.argv, kwargs)
+    main(sys.argv)
