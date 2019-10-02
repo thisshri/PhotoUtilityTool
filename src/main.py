@@ -3,6 +3,9 @@ from PIL import Image
 
 
 def create_square_image(image):
+    """
+    create a square image by adding white padding to the required sides of images.
+    """
     padding = round(
         abs(image.width - image.height) / 2
     )
@@ -25,6 +28,10 @@ def create_square_image(image):
 
 
 def main(args):
+    """
+     -s means square image, arument next to -s is taken as
+     the file to use for create_square_image method.
+    """
     if '-s' in args:
         image_file = args[
             args.index('-s') + 1
