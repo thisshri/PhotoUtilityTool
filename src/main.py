@@ -1,12 +1,13 @@
 #!/bin/python3
 
-import sys
 from PIL import Image
+from argparse import ArgumentParser
 
 
 def create_square_image(image):
     """
-    create a square image by adding white padding to the required sides of images.
+    Create new image with 1:1 aspect ration by adding white padding to the
+    required sides of images.
     """
     padding = round(
         abs(image.width - image.height) / 2
@@ -29,16 +30,23 @@ def create_square_image(image):
     return square_image
 
 
-def main(args):
-    """
-     -s means square image, arument next to -s is taken as
-     the file to use for create_square_image method.
-    """
-    if '-s' in args:
-        image_file = args[
-            args.index('-s') + 1
-        ]
+def main():
+    parser = ArgumentParser(
+        description='Create new image with aspect ration 1:1 by padding it' +
+        ' with white background'
+    )
 
+    parser.add_argument(
+        '--i',
+        metavar='IMAGE_FILE(S)',
+        nargs='*',
+        type=str,
+        required=True,
+        dest='image_files',
+        help='Path of image file(s).'
+    )
+
+    for image_file in parser.parse_args().image_files:
         image = create_square_image(
             Image.open(image_file)
         )
@@ -49,4 +57,4 @@ def main(args):
 
 
 if __name__ == "__main__":
-    main(sys.argv)
+    main()
