@@ -4,7 +4,7 @@ This script takes an image and adds white padding to the image to make it 1:1 im
 
 ### How to run
 
-`./src/main.py -s <image_file>`
+`./src/main.py -i foo.jpg`
 
 
 ### Examples
