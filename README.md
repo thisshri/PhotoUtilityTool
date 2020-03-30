@@ -3,8 +3,13 @@
 This script takes an image and adds white padding to the image to make it 1:1 image.
 
 ### How to run
+1. Clone the repo
 
-`./src/main.py -i foo.jpg`
+`git clone git@github.com:thisshri/photo-utility-tool.git`
+
+2. Go to src directory and run following
+
+`./main.py --i foo.jpg`
 
 
 ### Examples
