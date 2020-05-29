@@ -1,4 +1,5 @@
-# photo-utility-tool
+# photo-utility-tool [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+
 
 This script takes an image and adds white padding to the image to make it 1:1 image.
 
